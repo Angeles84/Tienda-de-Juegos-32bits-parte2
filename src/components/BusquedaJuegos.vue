@@ -1,7 +1,10 @@
 <template>
-    <div class="container mt-5">
+    <div class="container mt-4">
       <label for="">Ingresa el código del juego para ver los datos</label><br>
-      <input type="text" class="mb-2" v-model="busquedaPorId">
+
+      <input type="text" class="mb-2" :value="busquedaPorCodigo" 
+        @input="$store.commit('SET_BUSQUEDA', $event.target.value)">
+
       <ul v-if="juegoPorId.length > 0">
         <li v-for="(juego, index) in juegoPorId" :key="index">
           <label>Nombre: {{juego.nombre}} | stock: {{juego.stock}} | precio: {{juego.precio}} | color: {{juego.color}}</label>
@@ -11,8 +14,8 @@
         <li><label>Sin código</label></li>
       </ul>
 
-      <p class="mt-3 mb-1">Cantidad total de juegos: <b>{{juegos.length}}</b></p>
-      <p>Stock total de todos los juegos: <b>{{sumaTotalStock}}</b></p>
+      <span class="mt-3 mb-1 mr-5">Cantidad total de juegos: <b>{{juegos.length}}</b></span> 
+      <span> Stock total de todos los juegos: <b>{{sumaTotalStock}}</b></span>
 
       <Lista/>
 
@@ -31,13 +34,8 @@ export default {
     busquedaPorId: ''
   }),
   computed: {
-    ...mapState(['juegos']),
-    ...mapGetters(['sumaTotalStock']),
-
-    juegoPorId(){
-      return this.$store.getters.juegoPorId(this.busquedaPorId)
-    },
-   
+    ...mapState(['juegos' , 'busquedaPorCodigo']),
+    ...mapGetters(['sumaTotalStock', 'juegoPorId']),
   }
 }
 </script>

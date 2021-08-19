@@ -4,23 +4,25 @@
     <ul class="pt-3">
       <li v-for="(juego, index) in juegosConStock" :key="index">
         <label >{{juego.codigo}} | {{juego.nombre}} | {{juego.stock}} | {{juego.precio}}</label>
-        <button type="button" class="btn btn-success ml-2" @click="vender(juego)">vender</button>
+        <button type="button" class="btn btn-success ml-2" @click="venderJuego(juego, index)">vender</button>
       </li>
     </ul>
   </div>
 </template>
 
 <script>
-import { mapGetters , mapActions } from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'Ventas',
   computed: {
     ...mapGetters(['juegosConStock']),
   },
-  methods: {
-    ...mapActions (['vender']),
-  }
+  methods:{
+    venderJuego(juego, index) {
+      this.$store.dispatch("agregarJuegosCarritoDeCompras", {juego, index,});
+    },
+  },
 }
 </script>
 
