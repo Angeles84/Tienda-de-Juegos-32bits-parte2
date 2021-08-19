@@ -12,7 +12,7 @@
       </ul>
 
       <p class="mt-3 mb-1">Cantidad total de juegos: <b>{{juegos.length}}</b></p>
-      <p>Suma total de stock: <b>{{sumaTotalStock}}</b></p>
+      <p>Stock total de todos los juegos: <b>{{sumaTotalStock}}</b></p>
 
       <Lista/>
 

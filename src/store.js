@@ -7,7 +7,6 @@ const store = new Vuex.Store({
   state: {
     titulo: '32bits',
     subtitulo: 'Juegos de PC y consolas',
-    suma: 0,
     totalVentas: 0,
     ventas: [],
     juegos: [
@@ -26,12 +25,10 @@ const store = new Vuex.Store({
     juegosConStock: (state) => {
       return state.juegos.filter((juego) =>  juego.stock > 0);
     },
-    sumaTotalStock(state) {
-      state.juegos.forEach((numero) =>{
-        state.suma += numero.stock; 
-      });
-      return state.suma
-    },
+    sumaTotalStock: (state) => state.juegos.reduce((accumulator, juego) => {
+      accumulator += juego.stock
+      return accumulator
+    }, 0)
   },
   mutations: {
     REMOVE_PRODUCT(state, juego) {

@@ -1,7 +1,7 @@
 <template>
   <div class="container mt-5">
     <h5 class="my-4">Cantidad de productos con stock: <b>{{juegosConStock.length}}</b></h5>
-    <ul>
+    <ul class="pt-3">
       <li v-for="(juego, index) in juegosConStock" :key="index">
         <label >{{juego.codigo}} | {{juego.nombre}} | {{juego.stock}} | {{juego.precio}}</label>
         <button type="button" class="btn btn-success ml-2" @click="vender(juego)">vender</button>
