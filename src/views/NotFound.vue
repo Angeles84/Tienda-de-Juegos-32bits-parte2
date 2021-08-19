@@ -7,6 +7,6 @@
 
 <style scoped>
   img {
-    width: 25rem;
+    width: 26rem;
   }
 </style>

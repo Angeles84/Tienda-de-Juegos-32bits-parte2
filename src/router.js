@@ -9,7 +9,7 @@ export default new Router({
         {
             path: '/',
             name: 'inicio',
-            component: () => import('./components/Inicio')
+            component: () => import('./views/Inicio')
         }, 
         {
             path: '/inicio',
@@ -22,21 +22,21 @@ export default new Router({
         {
             path: '/busqueda',
             name: 'busqueda',
-            component: () => import('./components/BusquedaJuegos')
+            component: () => import('./views/BusquedaJuegos')
         }, 
         {
             path: '/ventas',
             name: 'ventas',
-            component: () => import('./components/Ventas')
+            component: () => import('./views/Ventas')
         },
         {
             path: '/total',
             name: 'total',
-            component: () => import('./components/Total')
+            component: () => import('./views/Total')
         },
         {
             path: "*",
-            component: () => import('./components/NotFound')
+            component: () => import('./views/NotFound')
         },
     ]
 })
